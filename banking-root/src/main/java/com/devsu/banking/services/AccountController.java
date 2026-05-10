@@ -17,6 +17,11 @@ public class AccountController {
     @Autowired
     private IAccountService iAccountService;
 
+    /**
+     * Method to save account
+     * @param accountVo
+     * @return
+     */
     @PostMapping(path = "/saveAccount")
     public ResponseEntity<ApiResponseVo<AccountVo>> saveAccount(@RequestBody AccountVo accountVo) {
         this.iAccountService.saveAccount(accountVo);
