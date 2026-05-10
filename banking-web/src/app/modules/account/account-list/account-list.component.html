@@ -1,0 +1,30 @@
+<h2>Cuentas</h2>
+<div>
+    <button *ngIf="!showCreateAccount"
+        class="btn-yellow"
+        (click)="showCreateAccountModal()">Nuevo</button>
+</div>
+
+<div *ngIf="showCreateAccount">
+    <app-account-create>
+    </app-account-create>
+</div>
+
+<div *ngIf="!showCreateAccount">
+    <table>
+        <thead>
+            <tr>
+                <th>Número de cuenta</th>
+                <th>Tipo de cuenta</th>
+                <th>Saldo inicial</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>123456789</td>
+                <td>Cuenta corriente</td>
+                <td>1000</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

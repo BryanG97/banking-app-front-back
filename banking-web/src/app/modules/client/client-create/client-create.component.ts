@@ -34,8 +34,10 @@ export class ClientCreateComponent {
     this.clientService.saveClient(this.client).subscribe((response: ResponseVo)=>{
       if(response.message){
         alert(response.message);
-        this.formCancelled.emit();
-        this.reloadList.emit();
+        if(response.data){
+          this.formCancelled.emit();
+          this.reloadList.emit();
+        }
       }else{
         alert('Error al crear el cliente');
       }
