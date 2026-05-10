@@ -12,5 +12,9 @@ export const routes: Routes = [
     {
         path: 'account',
         loadComponent: () => import('./modules/account/account-list/account-list.component').then(m => m.AccountListComponent)
+    },
+    {
+        path: 'movement',
+        loadComponent: () => import('./modules/movement/movement-list/movement-list.component').then(m => m.MovementListComponent)
     }
 ];

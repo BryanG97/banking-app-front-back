@@ -1,1 +1,52 @@
-<p>account-create works!</p>
+
+
+<h3>Creación de cuenta</h3>
+<form class="form"
+  #resultForm="ngForm"
+  (ngSubmit)="clickForm()"
+  autocomplete="off">
+    
+    <div class="form-grid">
+
+        <div class="form-group">
+            <label for="cliente">Cliente</label>
+            <select id="cliente" name="cliente" 
+                [(ngModel)]="account.client.clientId" required>
+                <option *ngIf="clientList.length === 0" disabled>
+                    No existen clientes disponibles
+                </option>
+                <option *ngFor="let client of clientList" [value]="client.clientId">
+                    {{ client.person.personName }}
+                </option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="nombre">Número de cuenta</label>
+            <input type="text" id="nombre" name="nombre" 
+                [(ngModel)]="account.accountNumber"
+                maxlength="6" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="tipoCuenta">Tipo de cuenta</label>
+            <select id="tipoCuenta" name="tipoCuenta" 
+                [(ngModel)]="account.accountType" placeholder="Seleccione un tipo" required>
+                <option value="AHORRO">Ahorro</option>
+                <option value="CORRIENTE">Corriente</option>
+            </select>
+        </div>
+    
+        <div class="form-group">
+            <label for="genero">Saldo inicial</label>
+            <input type="number" id="genero" name="genero" [(ngModel)]="account.accountBeginBalance" required>
+        </div>
+    
+        
+    </div>
+
+    <div class="form-actions">
+        <button type="submit" class="btn-yellow">Guardar</button>
+        <button type="button" class="btn-cancel" (click)="cancelForm()">Cancelar</button>
+    </div>
+</form>

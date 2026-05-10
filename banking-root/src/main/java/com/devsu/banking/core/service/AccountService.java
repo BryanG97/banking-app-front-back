@@ -8,6 +8,8 @@ import com.devsu.banking.vo.AccountVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class AccountService implements IAccountService {
 
@@ -33,6 +35,11 @@ public class AccountService implements IAccountService {
     @Override
     public AccountEntity findByAccountId(Integer accountId){
         return this.iAccountRepository.findById(accountId).orElse(null);
+    }
+
+    @Override
+    public List<AccountEntity> findByClientClientId(Integer clientId){
+        return this.iAccountRepository.findByClientClientId(clientId);
     }
 
 }

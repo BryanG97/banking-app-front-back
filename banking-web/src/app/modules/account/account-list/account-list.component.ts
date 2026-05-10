@@ -25,4 +25,17 @@ export class AccountListComponent {
     this.showCreateAccount = true;
   }
 
+  /**
+   * Method to hide create accout part
+   */
+  hideCreateAccountModal(){
+    this.showCreateAccount = false;
+  }
+
+  /**
+   * Method to reload list
+   */
+  reloadList(){
+  }
+
 }

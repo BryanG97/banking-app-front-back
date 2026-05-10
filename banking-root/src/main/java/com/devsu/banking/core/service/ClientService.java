@@ -8,11 +8,18 @@ import com.devsu.banking.vo.ClientVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ClientService implements IClientService {
 
     @Autowired
     private IClientRepository iClientRepository;
+
+    @Override
+    public List<ClientEntity> findAll(){
+        return this.iClientRepository.findAll();
+    }
 
     @Override
     public void saveClient(ClientVo clientVo){

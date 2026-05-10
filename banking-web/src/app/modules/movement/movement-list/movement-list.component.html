@@ -1,0 +1,31 @@
+<h2>Movimientos</h2>
+<div>
+    <button *ngIf="!showCreateMovement"
+        class="btn-yellow"
+        (click)="showCreateMovementModal()">Nuevo</button>
+</div>
+
+<div *ngIf="showCreateMovement">
+    <app-movement-create
+        (formCancelled)="cancelCreateMovement()"
+        (reloadList)="reloadList()"
+    >
+    </app-movement-create>
+</div>
+
+<div *ngIf="!showCreateMovement">
+    <table>
+        <thead>
+            <tr>
+                <th>Tipo de movimiento</th>
+                <th>Valor</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>DEPOSITO</td>
+                <td>1000</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

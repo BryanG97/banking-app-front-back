@@ -1,0 +1,69 @@
+
+
+<h3>Creación de movimiento</h3>
+<form class="form"
+  #resultForm="ngForm"
+  (ngSubmit)="clickForm()"
+  autocomplete="off">
+    
+    <div class="form-grid">
+
+        <div class="form-group">
+            <label for="client">Cliente</label>
+
+            <select id="client" name="client" 
+                [(ngModel)]="clientId"
+                (ngModelChange)="getAccount()"
+                required>
+
+                <option *ngIf="clientList.length === 0" disabled>
+                    No existen clientes disponibles
+                </option>
+                <option *ngFor="let client of clientList" [value]="client.clientId">
+                    {{ client.person.personName }}
+                </option>
+
+            </select>
+
+        </div>
+        
+        <div class="form-group">
+            <label for="account">Cuenta</label>
+
+            <select id="account"
+                name="account"
+                [(ngModel)]="movement.account.accountId"
+                required>
+
+                <option *ngIf="accountList.length === 0" disabled>
+                    No existen cuentas disponibles
+                </option>
+                <option *ngFor="let account of accountList"
+                        [value]="account.accountId">
+                    {{ account.accountNumber }} - {{ account.accountType }}
+                </option>
+
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="movementType">Tipo de movimiento</label>
+            <select id="movementType" name="movementType" 
+                [(ngModel)]="movement.movementType" placeholder="Seleccione un tipo" required>
+                <option value="DEPOSITO">Depósito</option>
+                <option value="RETIRO">Retiro</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="amount">Monto</label>
+            <input type="number" id="amount" name="amount" [(ngModel)]="movement.movementValue" required>
+        </div>  
+        
+    </div>
+
+    <div class="form-actions">
+        <button type="submit" class="btn-yellow">Guardar</button>
+        <button type="button" class="btn-cancel" (click)="cancelForm()">Cancelar</button>
+    </div>
+</form>

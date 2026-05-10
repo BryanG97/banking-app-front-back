@@ -3,6 +3,8 @@ package com.devsu.banking.client.service;
 import com.devsu.banking.client.entity.AccountEntity;
 import com.devsu.banking.vo.AccountVo;
 
+import java.util.List;
+
 public interface IAccountService {
 
     /**
@@ -17,5 +19,12 @@ public interface IAccountService {
      * @return AccountEntity
      */
     AccountEntity findByAccountId(Integer accountId);
+
+    /**
+     * Method to find accounts by client id
+     * @param clientId
+     * @return List<AccountEntity>
+     */
+    List<AccountEntity> findByClientClientId(Integer clientId);
 
 }

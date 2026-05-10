@@ -6,7 +6,10 @@
 </div>
 
 <div *ngIf="showCreateAccount">
-    <app-account-create>
+    <app-account-create
+        (formCancelled)="hideCreateAccountModal()"
+        (reloadList)="reloadList()"
+    >
     </app-account-create>
 </div>
 

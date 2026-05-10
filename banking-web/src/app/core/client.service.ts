@@ -17,5 +17,9 @@ export class ClientService {
   public saveClient(client: any): Observable<any> {
     return this.http.post(`${this.apiurl}/saveClient`, client);
   }
+  
+  public getAllClients(): Observable<any> {
+    return this.http.get(`${this.apiurl}/getAllClient`);
+  }
 
 }
