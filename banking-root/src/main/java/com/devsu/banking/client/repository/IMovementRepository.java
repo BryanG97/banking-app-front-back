@@ -25,4 +25,13 @@ public interface IMovementRepository extends JpaRepository<MovementEntity, Integ
      * @return
      */
     List<MovementEntity> findByAccountAccountIdAndMovementTypeAndMovementDateBetween(Integer accountId, String movementType, Date startDate, Date endDate );
+
+    /**
+     * Find all movements by account id and movement date between
+     * @param accountId
+     * @param startDate
+     * @param endDate
+     * @return
+     */
+    List<MovementEntity> findByAccountAccountIdAndMovementDateBetween(Integer accountId, Date startDate, Date endDate );
 }

@@ -9,9 +9,11 @@ import com.devsu.banking.client.service.IParameterService;
 import com.devsu.banking.vo.MovementVo;
 import com.devsu.banking.vo.response.ApiResponseVo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -100,6 +102,25 @@ public class MovementController {
                 ApiResponseVo.<List<MovementEntity>>builder()
                         .message("Movimientos encontrados correctamente.")
                         .data(this.iMovementService.findAll())
+                        .build());
+    }
+
+    /**
+     * Method to find all movements by account id and movement date between
+     * @param accountId
+     * @param startDate
+     * @param endDate
+     * @return List<MovementEntity>
+     */
+    @GetMapping(path = "/findByAccountAccountIdAndMovementDateBetween")
+    public ResponseEntity<ApiResponseVo<List<MovementEntity>>> findByAccountAccountIdAndMovementDateBetween(
+            @RequestParam Integer accountId,
+            @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss.SSS") Date startDate,
+            @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss.SSS") Date endDate) {
+        return ResponseEntity.ok(
+                ApiResponseVo.<List<MovementEntity>>builder()
+                        .message("Movimientos encontrados correctamente.")
+                        .data(this.iMovementService.findByAccountAccountIdAndMovementDateBetween(accountId, startDate, endDate))
                         .build());
     }
 

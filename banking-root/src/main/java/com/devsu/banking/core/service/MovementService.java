@@ -76,4 +76,9 @@ public class MovementService implements IMovementService {
 
     }
 
+    @Override
+    public List<MovementEntity> findByAccountAccountIdAndMovementDateBetween(Integer accountId, Date startDate, Date endDate) {
+        return this.iMovementRepository.findByAccountAccountIdAndMovementDateBetween(accountId, startDate, endDate);
+    }
+
 }

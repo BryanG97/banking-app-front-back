@@ -3,6 +3,7 @@ package com.devsu.banking.client.service;
 import com.devsu.banking.client.entity.MovementEntity;
 import com.devsu.banking.vo.MovementVo;
 
+import java.util.Date;
 import java.util.List;
 
 public interface IMovementService {
@@ -32,5 +33,14 @@ public interface IMovementService {
      * @param movementVo
      */
     void saveMovement(MovementVo movementVo);
+
+    /**
+     * Find all movements by account id and movement date between
+     * @param accountId
+     * @param startDate
+     * @param endDate
+     * @return
+     */
+    List<MovementEntity> findByAccountAccountIdAndMovementDateBetween(Integer accountId, Date startDate, Date endDate);
 
 }

@@ -5,6 +5,8 @@
         (click)="showCreateMovementModal()">Nuevo</button>
 </div>
 
+<br>
+
 <div *ngIf="showCreateMovement">
     <app-movement-create
         (formCancelled)="cancelCreateMovement()"
@@ -13,7 +15,7 @@
     </app-movement-create>
 </div>
 
-<div *ngIf="!showCreateMovement">
+<div class="table" *ngIf="!showCreateMovement">
     <table>
         <thead>
             <tr>
@@ -30,7 +32,7 @@
                 <td>{{ movement.account.accountType }}</td>
                 <td>{{ movement.account.accountBeginBalance }}</td>
                 <td>{{ movement.account.accountStatus }}</td>
-                <td>{{ movement.movementType }} de {{ movement.movementValue < 0 ? movement.movementValue * -1 : movement.movementValue }}</td>
+                <td>{{ movement.movementType }} DE {{ movement.movementValue < 0 ? movement.movementValue * -1 : movement.movementValue }}</td>
             </tr>
         </tbody>
     </table>
