@@ -24,6 +24,10 @@ public class ClientController {
     @Autowired
     private IPersonService iPersonService;
 
+    /**
+     * Method to find all clients
+     * @return List<ClientEntity>
+     */
     @GetMapping(path = "/getAllClient")
     public ResponseEntity<ApiResponseVo<List<ClientEntity>>> getAllClients() {
         String message;
@@ -39,6 +43,11 @@ public class ClientController {
 
     }
 
+    /**
+     * Method to save client
+     * @param clientVo
+     * @return
+     */
     @PostMapping(path = "/saveClient")
     public ResponseEntity<ApiResponseVo<ClientVo>> saveClient(@RequestBody ClientVo clientVo) {
         PersonEntity personEntity = this.iPersonService.getPersonByIdentification(clientVo.getPerson().getPersonIdentification());

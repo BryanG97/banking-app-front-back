@@ -48,4 +48,18 @@ public class AccountController {
                         .build());
     }
 
+    /**
+     * Method to find all accounts
+     * @return List<AccountEntity>
+     */
+    @GetMapping(path = "/findAll")
+    public ResponseEntity<ApiResponseVo<List<AccountEntity>>> findAll() {
+        List<AccountEntity> accountList = this.iAccountService.findAll();
+        return ResponseEntity.ok(
+                ApiResponseVo.<List<AccountEntity>>builder()
+                        .message("Cuentas obtenidas correctamente.")
+                        .data(accountList)
+                        .build());
+    }
+
 }

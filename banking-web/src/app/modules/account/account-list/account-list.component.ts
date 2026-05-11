@@ -2,6 +2,9 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AccountCreateComponent } from '../account-create/account-create.component';
+import { AccountVo } from '../../../shared/vo/account-vo';
+import { AccountService } from '../../../core/account.service';
+import { ResponseVo } from '../../../shared/vo/response/response-vo';
 
 @Component({
   selector: 'app-account-list',
@@ -17,6 +20,29 @@ import { AccountCreateComponent } from '../account-create/account-create.compone
 export class AccountListComponent {
 
   showCreateAccount: boolean = false;
+
+  accountList: AccountVo[];
+
+  constructor(
+    private accountService: AccountService,
+  ) { 
+    this.accountList = [];
+  }
+
+  ngOnInit(): void {
+      this.getAccountList();
+    }
+  
+  /**
+   * Method to get the client list
+   */
+  getAccountList(){
+    this.accountService.getAllAccounts().subscribe((responde: ResponseVo) =>{
+      if(responde.data){
+        this.accountList = responde.data;
+      }
+    });
+  }
 
   /**
    * Method to show create accout part
@@ -36,6 +62,8 @@ export class AccountListComponent {
    * Method to reload list
    */
   reloadList(){
+    this.getAccountList();
   }
 
 }
+

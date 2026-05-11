@@ -17,14 +17,20 @@
     <table>
         <thead>
             <tr>
-                <th>Tipo de movimiento</th>
-                <th>Valor</th>
+                <th>Número de cuenta</th>
+                <th>Tipo</th>
+                <th>Saldo inicial</th>
+                <th>Estado</th>
+                <th>Movimiento</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>DEPOSITO</td>
-                <td>1000</td>
+            <tr *ngFor="let movement of movementList">
+                <td>{{ movement.account.accountNumber }}</td>
+                <td>{{ movement.account.accountType }}</td>
+                <td>{{ movement.account.accountBeginBalance }}</td>
+                <td>{{ movement.account.accountStatus }}</td>
+                <td>{{ movement.movementType }} de {{ movement.movementValue < 0 ? movement.movementValue * -1 : movement.movementValue }}</td>
             </tr>
         </tbody>
     </table>

@@ -14,10 +14,19 @@ export class ClientService {
   ) {
   }
 
+  /**
+   * Save client
+   * @param client 
+   * @returns 
+   */
   public saveClient(client: any): Observable<any> {
     return this.http.post(`${this.apiurl}/saveClient`, client);
   }
   
+  /**
+   * Get all clients
+   * @returns 
+   */
   public getAllClients(): Observable<any> {
     return this.http.get(`${this.apiurl}/getAllClient`);
   }

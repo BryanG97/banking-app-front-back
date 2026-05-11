@@ -5,6 +5,8 @@
         (click)="showCreateAccountModal()">Nuevo</button>
 </div>
 
+<br>
+
 <div *ngIf="showCreateAccount">
     <app-account-create
         (formCancelled)="hideCreateAccountModal()"
@@ -20,13 +22,17 @@
                 <th>Número de cuenta</th>
                 <th>Tipo de cuenta</th>
                 <th>Saldo inicial</th>
+                <th>Estado</th>
+                <th>Cliente</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>123456789</td>
-                <td>Cuenta corriente</td>
-                <td>1000</td>
+            <tr *ngFor="let account of accountList">
+                <td>{{ account.accountNumber }}</td>
+                <td>{{ account.accountType }}</td>
+                <td>{{ account.accountBeginBalance }}</td>
+                <td>{{ account.accountStatus }}</td>
+                <td>{{ account.client.person.personName }}</td>
             </tr>
         </tbody>
     </table>

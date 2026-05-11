@@ -1,5 +1,6 @@
 package com.devsu.banking.client.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -12,6 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @Entity(name = "ACCOUNT")
 @Table(name = "\"ACCOUNT\"")
+@JsonIgnoreProperties("movementEntities")
 public class AccountEntity {
 
     @Id

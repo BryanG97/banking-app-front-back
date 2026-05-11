@@ -42,4 +42,9 @@ public class AccountService implements IAccountService {
         return this.iAccountRepository.findByClientClientId(clientId);
     }
 
+    @Override
+    public List<AccountEntity> findAll(){
+        return this.iAccountRepository.findAll();
+    }
+
 }

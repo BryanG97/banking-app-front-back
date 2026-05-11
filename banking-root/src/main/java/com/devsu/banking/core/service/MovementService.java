@@ -28,6 +28,11 @@ public class MovementService implements IMovementService {
     }
 
     @Override
+    public List<MovementEntity> findAll(){
+        return this.iMovementRepository.findAll();
+    }
+
+    @Override
     public List<MovementEntity> findByAccountAccountIdAndMovementTypeAndMovementDateBetween(Integer accountId) {
 
         Calendar calendar = Calendar.getInstance();

@@ -90,4 +90,17 @@ public class MovementController {
         return false;
     }
 
+    /**
+     * Method to find all movements
+     * @return List<MovementEntity>
+     */
+    @GetMapping(path = "/findAll")
+    public ResponseEntity<ApiResponseVo<List<MovementEntity>>> findAll() {
+        return ResponseEntity.ok(
+                ApiResponseVo.<List<MovementEntity>>builder()
+                        .message("Movimientos encontrados correctamente.")
+                        .data(this.iMovementService.findAll())
+                        .build());
+    }
+
 }

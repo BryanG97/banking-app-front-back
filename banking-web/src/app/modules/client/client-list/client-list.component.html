@@ -4,30 +4,33 @@
         class="btn-yellow"
         (click)="showCreateClientModal()">Nuevo</button>
 </div>
+<br>
+
 <div *ngIf="showCreateClient">
     <app-client-create 
         (formCancelled)="hideCreateClientModal()"
         (reloadList)="reloadList()">
     </app-client-create>
 </div>
+
 <div *ngIf="!showCreateClient">
     <table>
         <thead>
             <tr>
                 <th>Nombre</th>
-                <th>Apellido</th>
-                <th>Email</th>
-                <th>Telefono</th>
-                <th>Direccion</th>
+                <th>Dirección</th>
+                <th>Teléfono</th>
+                <th>Contraseña</th>
+                <th>Estado</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>John</td>
-                <td>Doe</td>
-                <td>john.doeexample.com</td>
-                <td>123456789</td>
-                <td>Calle 123</td>
+            <tr *ngFor="let client of clientList">
+                <td>{{client.person.personName}}</td>
+                <td>{{client.person.personAddress}}</td>
+                <td>{{client.person.personPhone}}</td>
+                <td>{{client.clientPassword}}</td>
+                <td>{{client.clientStatus}}</td>
             </tr>
         </tbody>
     </table>

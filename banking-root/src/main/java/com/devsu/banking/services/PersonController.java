@@ -18,6 +18,10 @@ public class PersonController {
     @Autowired
     private IPersonService iPersonService;
 
+    /**
+     * Method to find all persons
+     * @return List<PersonEntity>
+     */
     @GetMapping(path = "/getAllPerson")
     public ResponseEntity<ApiResponseVo<List<PersonEntity>>> getAllPerson() {
         String message;
@@ -32,6 +36,11 @@ public class PersonController {
                         .build());
     }
 
+    /**
+     * Method to save person
+     * @param personVo
+     * @return
+     */
     @PostMapping(path = "/savePerson")
     public ResponseEntity<ApiResponseVo<PersonVo>> savePerson(@RequestBody PersonVo personVo) {
         PersonEntity personEntity = this.iPersonService.getPersonByIdentification(personVo.getPersonIdentification());

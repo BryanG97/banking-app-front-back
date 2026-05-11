@@ -15,6 +15,12 @@ public interface IMovementService {
     MovementEntity findTopByOrderByMovementDateDesc(Integer accountId);
 
     /**
+     * Find all movements
+     * @return
+     */
+    List<MovementEntity> findAll();
+
+    /**
      * Find all movements by account id and actual date
      * @param accountId
      * @return

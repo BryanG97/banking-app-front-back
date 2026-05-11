@@ -27,4 +27,10 @@ public interface IAccountService {
      */
     List<AccountEntity> findByClientClientId(Integer clientId);
 
+    /**
+     * Method to find all accounts
+     * @return List<AccountEntity>
+     */
+    List<AccountEntity> findAll();
+
 }

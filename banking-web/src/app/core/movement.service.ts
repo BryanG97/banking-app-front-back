@@ -14,12 +14,21 @@ export class MovementService {
     ) {
     }
 
+    /**
+     * Save movement
+     * @param movement 
+     * @returns 
+     */
     public saveMovement(movement: any): Observable<any> {
       return this.http.post(`${this.apiurl}/saveMovement`, movement);
     }
     
+    /**
+     * Get all movements
+     * @returns 
+     */
     public getAllMovements(): Observable<any> {
-      return this.http.get(`${this.apiurl}/getAllMovement`);
+      return this.http.get(`${this.apiurl}/findAll`);
     }
 
 }
