@@ -58,3 +58,7 @@ Base de datos utilizada: **PostgreSQL**
 - **Archivo de configuración**: `src/main/resources/application.properties`
 - **Base de datos**: Configurada para PostgreSQL en `localhost:5432`
 - **Puerto por defecto**: 8080
+
+## Json Postman
+- **Archivo de configuración**: `Banking-project.postman_collection.json`
+- **Importar en Postman** para probar los endpoints de la API

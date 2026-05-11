@@ -1,0 +1,271 @@
+{
+  "info": {
+    "_postman_id": "db635a31-94f7-407c-af8d-c2c89e156d68",
+    "name": "Banking-project",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "13334300"
+  },
+  "item": [
+    {
+      "name": "PERSON - Get all person",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/person/getAllPerson",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "person",
+            "getAllPerson"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "PERSON - Save person",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"personName\": \"Bryan Guevara\",\r\n    \"personGender\": \"M\",\r\n    \"personAge\": 28,\r\n    \"personIdentification\": \"1724510183\",\r\n    \"personAddress\": \"Quito Sur\",\r\n    \"personPhone\":\"0985766757\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/person/savePerson",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "person",
+            "savePerson"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "CLIENT - Save client",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"clientPassword\": \"12345\",\r\n    \"person\":{\r\n        \"personName\": \"Bryan Guevara\",\r\n        \"personGender\": \"M\",\r\n        \"personAge\": 28,\r\n        \"personIdentification\": \"1724510183\",\r\n        \"personAddress\": \"Quito Sur\",\r\n        \"personPhone\":\"0985766757\"\r\n    }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/client/saveClient",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "client",
+            "saveClient"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "CLIENT - Get all client",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/client/getAllClient",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "client",
+            "getAllClient"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "ACCOUNT - Save account",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"accountNumber\": \"111111\",\r\n    \"accountType\":\"Ahorro\",\r\n    \"accountBeginBalance\": 2000,\r\n    \"client\":{\r\n        \"clientId\": 2\r\n    }\r\n\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/account/saveAccount",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "account",
+            "saveAccount"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "ACCOUNT - Get all account",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/account/findAll",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "account",
+            "findAll"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "ACCOUNT - Get account by client id",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/account/findByClientClientId/4",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "account",
+            "findByClientClientId",
+            "4"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "MOVEMENT - Save movement",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"movementType\": \"RETIRO\",\r\n    \"movementValue\": 700,\r\n    \"account\":{\r\n        \"accountId\": 2\r\n    }\r\n\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/movement/saveMovement",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "movement",
+            "saveMovement"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "MOVEMENT - Get all movement",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/movement/findAll",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "movement",
+            "findAll"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "MOVEMENT - Get movements by account id and dates",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/movement/findByAccountAccountIdAndMovementDateBetween?accountId=5&startDate=2026-05-01 00:00:00.000&endDate=2026-05-10 23:59:59.000",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "movement",
+            "findByAccountAccountIdAndMovementDateBetween"
+          ],
+          "query": [
+            {
+              "key": "accountId",
+              "value": "5"
+            },
+            {
+              "key": "startDate",
+              "value": "2026-05-01 00:00:00.000"
+            },
+            {
+              "key": "endDate",
+              "value": "2026-05-10 23:59:59.000"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
